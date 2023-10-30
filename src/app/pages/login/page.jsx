@@ -36,7 +36,7 @@ export default function LoginPage() {
                 </h3>
                 <LoginForm />
                 <div className="mt-5 text-right">
-                  <Link className="underline" href={"/register"}>
+                  <Link className="underline" href={"/pages/register"}>
                     Create an account...
                   </Link>
                 </div>
