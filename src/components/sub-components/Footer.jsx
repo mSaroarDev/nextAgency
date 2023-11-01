@@ -1,4 +1,6 @@
-export default function Name() {
+import EmailSubscriptForm from "./EmailSubscriptionForm";
+
+export default function Footer() {
   return (
     <>
       <div className="bg-base-200">
@@ -24,24 +26,7 @@ export default function Name() {
               <a className="link link-hover">Privacy policy</a>
               <a className="link link-hover">Cookie policy</a>
             </nav>
-            <form>
-              <header className="footer-title">Newsletter</header>
-              <fieldset className="form-control w-80">
-                <label className="label">
-                  <span className="label-text">Enter your email address</span>
-                </label>
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="username@site.com"
-                    className="input input-bordered w-full pr-16"
-                  />
-                  <button className="btn bg-brandColor text-white hover:bg-brandColor/20 hover:text-brandColor absolute top-0 right-0 rounded-l-none">
-                    Subscribe
-                  </button>
-                </div>
-              </fieldset>
-            </form>
+            <EmailSubscriptForm />
           </footer>
         </div>
       </div>

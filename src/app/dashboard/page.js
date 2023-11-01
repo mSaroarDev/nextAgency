@@ -1,7 +1,9 @@
+import StatPage from "./stats/page";
+
 export default function Dashboard() {
   return (
     <>
-      <h1>Hello Wordl</h1>
+      <StatPage />
     </>
   );
 }

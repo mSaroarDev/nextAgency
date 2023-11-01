@@ -15,3 +15,15 @@ main{
 .btn-brand{
   @apply btn bg-brandColor text-white hover:bg-brandColor/20 hover:text-brandColor;
 }
+
+.side-navbar{
+  @apply bg-[#292929] w-[250px] fixed left-0 top-0 bottom-0 z-50 flex ;
+}
+
+.admin-contents {
+  @apply ml-[255px] p-10;
+}
+
+.menus a, .menus .side-links{
+  @apply text-white w-full py-3 px-5 hover:bg-[#363636] border-l-2 border-[#292929] hover:border-brandColor flex items-center gap-3;
+}

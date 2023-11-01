@@ -1,16 +1,26 @@
-
-export default function ServiceCard({title, icon, text}){
-    return (
-      <>
+export default function ServiceCard({ title, text }) {
+  return (
+    <>
       <div className="box w-80 mx-3 bg-slate-100 rounded-md p-10 flex flex-col items-center justify-start gap-8">
-              <div className="h-20 w-20 rounded-full bg-brandColor/20 flex items-center justify-center">
-                {icon}
-              </div>
-              <h3 className="uppercase font-bold text-lg">
-                {title}
-              </h3>
-              <p className="italic -mt-5 text-center">{text}</p>
-            </div>
-      </>
-    )
-}   
+        <div className="h-20 w-20 rounded-full bg-brandColor/20 flex items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-8 h-8"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V19.5m0 2.25l-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25"
+            />
+          </svg>
+        </div>
+        <h3 className="uppercase font-bold text-lg">{title}</h3>
+        <p className="italic -mt-5 text-center">{text}</p>
+      </div>
+    </>
+  );
+}

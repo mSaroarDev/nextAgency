@@ -1,11 +1,14 @@
 import Blogs from "@/components/sections/Blog";
 import BlogCard from "@/components/sub-components/BlogCard";
 import BackToHome from "@/components/sub-components/BackToHome";
+import Navbar from "@/components/sub-components/Navbar";
+import Footer from "@/components/sub-components/Footer";
 
 export default function BlogsPage() {
   return (
     <>
     <div className="bg-slate-100">
+      <Navbar />
     <main>
       <BackToHome />
     </main>
@@ -13,6 +16,7 @@ export default function BlogsPage() {
       <div className="-mt-24">
       <Blogs />
       </div>
+      <Footer />
     </>
   );
 }

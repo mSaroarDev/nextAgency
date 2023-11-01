@@ -6,7 +6,7 @@ import registerimage from "public/register.svg";
 export default function RegisterPage() {
   return (
     <>
-      <div className="h-fit w-full flex items-center justify-center my-24">
+      <div className="h-screen w-full flex items-center justify-center">
         <div className="bg-slate-100 p-5 rounded-lg shadow-lg">
           <div>
             <Link href={"/"} className="flex gap-2 items-center w-fit">
