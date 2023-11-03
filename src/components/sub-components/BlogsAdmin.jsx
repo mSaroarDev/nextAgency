@@ -1,32 +1,36 @@
 "use client";
+import DateConvert from "@/utils/DataConvert";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-export default function BlogsAdmin() {
+export default function BlogsAdmin({data}) {
   const router = useRouter();
+
+  const date = (dbDate) => DateConvert(dbDate);
 
   const deleteFolder = () => {
     router.push(`/dashboard/task-folder/delete/1`);
   };
 
   const editFolder = () => {
-    router.push(`/dashboard/task-folder/edit/1`);
+    router.push(`${process.env.NEXT_PUBLIC_BASE_URL}/pages/blog/details/${data.id}`);
   };
 
   return (
     <>
       <Link
         className="cursor-pointer"
-        href={`${process.env.NEXT_PUBLIC_BASE_URL}/dashboard/task-folder/1`}
+        href={`${process.env.NEXT_PUBLIC_BASE_URL}/pages/blog/details/${data.id}`}
       >
-        <div className="bg-slate-50 hover:bg-slate-100 rounded-md shadow-md p-5 flex items-center justify-start gap-3 z-30">
-          <div className="bg-green-500 text-white text-3xl font-bold h-12 w-12 rounded-md flex items-center justify-center">
-            {/* {index + 1} */} 1
+        <div className="bg-slate-50 hover:bg-slate-100 rounded-md shadow-md flex items-center justify-start gap-3 z-30">
+          <div className="rounded-full justify-center object-fit">
+            <Image src={data.featured_image} height={48} width={48} alt="image" className="h-20 w-auto rounded-l-md" />
           </div>
-          <div className="w-full flex items-center justify-between">
+          <div className="w-full flex items-center justify-between p-3">
             <div className="flex flex-1 flex-col items-start justify-between">
-              <h3 className="text-base font-bold">Blog Title</h3>
-              <p>10 Tasks • Created: 10 Jan, 23</p>
+              <h3 className="text-base font-bold">{data.title}</h3>
+              <p>Created: {date(data.created_at)}</p>
             </div>
             <div className="flex gap-3 items-center">
               <span

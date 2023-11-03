@@ -1,20 +1,24 @@
+import DateConvert from "@/utils/DataConvert";
 import Image from "next/image";
 import Link from "next/link";
 import blogImage from "public/blogimage.jpg";
 
-export default function BlogCard() {
+export default function BlogCard({data}) {
+
+  const date = (dbDate) => DateConvert(dbDate);
+
   return (
     <>
-      <Link href={"/"}>
+      <Link href={"/pages/blog/details/" + data.id}>
         <div className="card w-80 bg-base-100 shadow-xl mb-5">
           <figure>
-            <Image src={blogImage} height={320} width={320} alt="Image" />
+            <Image src={data.featured_image} height={320} width={320} alt="Image" />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
+            <h2 className="card-title">{data.title}</h2>
+            <p>{data.short_des}</p>
             <div className="card-actions justify-end text-xs">
-              published 10th Feb, 2023
+              published {date(data.created_at)}
             </div>
           </div>
         </div>

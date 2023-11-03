@@ -27,3 +27,7 @@ main{
 .menus a, .menus .side-links{
   @apply text-white w-full py-3 px-5 hover:bg-[#363636] border-l-2 border-[#292929] hover:border-brandColor flex items-center gap-3;
 }
+
+.ql-editor {
+  font-size: 16px;
+}

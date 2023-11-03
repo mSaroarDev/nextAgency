@@ -27,9 +27,9 @@ CREATE TABLE `service` (
 CREATE TABLE `blog` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(191) NOT NULL,
-    `short_des` VARCHAR(191) NOT NULL,
-    `description` VARCHAR(191) NOT NULL,
-    `created_by` INTEGER NOT NULL,
+    `short_des` LONGTEXT NOT NULL,
+    `description` LONGTEXT NOT NULL,
+    `featured_image` VARCHAR(191) NOT NULL,
     `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updated_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
@@ -60,6 +60,3 @@ CREATE TABLE `newletter` (
 
 -- AddForeignKey
 ALTER TABLE `service` ADD CONSTRAINT `service_created_by_fkey` FOREIGN KEY (`created_by`) REFERENCES `user`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE `blog` ADD CONSTRAINT `blog_created_by_fkey` FOREIGN KEY (`created_by`) REFERENCES `user`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;

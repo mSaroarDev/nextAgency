@@ -18,7 +18,7 @@ model user {
   created_at DateTime  @default(now())
   updated_at DateTime  @default(now()) @updatedAt
   service    service[]
-  blog       blog[]
+  // blog       blog[]
 }
 
 model service {
@@ -32,14 +32,15 @@ model service {
 }
 
 model blog {
-  id          Int      @id @default(autoincrement())
-  title       String
-  short_des   String
-  description String
-  created_by  Int
-  created_at  DateTime @default(now())
-  updated_at  DateTime @default(now()) @updatedAt
-  user        user     @relation(fields: [created_by], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  id             Int      @id @default(autoincrement())
+  title          String
+  short_des      String   @db.LongText
+  description    String   @db.LongText
+  featured_image String
+  // created_by     Int
+  created_at     DateTime @default(now())
+  updated_at     DateTime @default(now()) @updatedAt
+  // user           user     @relation(fields: [created_by], references: [id], onDelete: Restrict, onUpdate: Cascade)
 }
 
 model contact_form {

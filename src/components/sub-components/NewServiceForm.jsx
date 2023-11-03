@@ -29,7 +29,7 @@ export default function NewServiceForm({ uid }) {
           body: JSON.stringify(values),
         });
 
-        if (!values.title || !values.text ) {
+        if (!values.title || !values.text) {
           showError("All fields required");
         } else if (res.status === 200) {
           showSuccess("Service created successfully");
@@ -46,7 +46,7 @@ export default function NewServiceForm({ uid }) {
 
   return (
     <>
-    <Toaster />
+      <Toaster />
       <form onSubmit={formik.handleSubmit} className="flex flex-col gap-3">
         <h1 className="text-lg font-bold mb-10">Create a new service</h1>
 
@@ -61,16 +61,14 @@ export default function NewServiceForm({ uid }) {
           className="input input-bordered w-full"
         />
         <label htmlFor="text">Short Description</label>
-        <input
-          type="text"
+        <textarea
+          className="textarea textarea-bordered"
           id="text"
           name="text"
           onChange={formik.handleChange}
           value={formik.values.text}
           placeholder="Type here"
-          className="input input-bordered w-full"
-        />
-        <label htmlFor="svg">SVG Icon Code</label>
+        ></textarea>
         <button type="submit" className="btn-brand">
           Create
         </button>

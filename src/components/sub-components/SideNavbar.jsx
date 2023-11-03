@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 import Link from "next/link";
-// import LogoutButton from "./LogoutButton";
+import LogoutButton from "./LogoutButton";
 // import { UserEmail, userInfo } from "@/utils/user/GetUserInfo";
 
 export default async function SideNavbar() {
@@ -118,7 +118,7 @@ export default async function SideNavbar() {
               </svg>
               Subscriptions
             </Link>
-            {/* <LogoutButton /> */}
+            <LogoutButton />
           </div>
         </div>
       </div>
