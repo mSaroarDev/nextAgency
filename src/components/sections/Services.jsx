@@ -17,7 +17,7 @@ export default async function Services() {
             <h2 className="text-2xl font-bold mb-10 inline-block">Services</h2>
           </div>
 
-          <div className="flex items-start justify-center">
+          <div className="flex flex-wrap items-start justify-center">
             {
               services && services.map((service)=> {
                 return (

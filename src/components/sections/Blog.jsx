@@ -18,7 +18,7 @@ export default async function Blogs() {
             </h2>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {blogData &&
               blogData.map((blog) => {
                 return (
