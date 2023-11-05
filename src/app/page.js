@@ -6,6 +6,7 @@ import Footer from "@/components/sub-components/Footer";
 import Hero from "@/components/sub-components/Hero";
 import Navbar from "@/components/sub-components/Navbar";
 
+export const revalidate = 0;
 export default function Homepage() {
   return (
     <>
