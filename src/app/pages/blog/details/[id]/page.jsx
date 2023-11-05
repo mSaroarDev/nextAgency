@@ -4,6 +4,7 @@ import prisma from "@/lib/db";
 import DateConvert from "@/utils/DataConvert";
 import Image from "next/image";
 
+export const revalidate = 0;
 export default async function BlogDetails({ params }) {
   const { id } = params;
 

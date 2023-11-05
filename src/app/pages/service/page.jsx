@@ -4,6 +4,7 @@ import BackToHome from "@/components/sub-components/BackToHome";
 import Footer from "@/components/sub-components/Footer";
 import Navbar from "@/components/sub-components/Navbar";
 
+export const revalidate = 0;
 export default function ServicesPage() {
   return (
     <div>
