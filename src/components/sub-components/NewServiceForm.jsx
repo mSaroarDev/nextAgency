@@ -1,6 +1,7 @@
 "use client";
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function NewServiceForm({ uid }) {
@@ -11,6 +12,9 @@ export default function NewServiceForm({ uid }) {
   const showSuccess = (message) => toast.success(message);
   const showError = (message) => toast.error(message);
 
+  // loading screen
+  const [loading, setLoading]= useState(false);
+
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -20,6 +24,7 @@ export default function NewServiceForm({ uid }) {
 
     onSubmit: async (values, { resetForm }) => {
       try {
+        setLoading(true);
         const url = process.env.NEXT_PUBLIC_BASE_URL;
         const res = await fetch(url + "/api/service/new", {
           method: "POST",
@@ -40,6 +45,8 @@ export default function NewServiceForm({ uid }) {
         }
       } catch (error) {
         showError("Failed");
+      }finally{
+        setLoading(false)
       }
     },
   });
@@ -69,9 +76,13 @@ export default function NewServiceForm({ uid }) {
           value={formik.values.text}
           placeholder="Type here"
         ></textarea>
-        <button type="submit" className="btn-brand">
+        {loading ? (
+          <p>please wait</p>
+        ) : (
+          <button type="submit" className="btn-brand">
           Create
         </button>
+        )}
       </form>
     </>
   );
