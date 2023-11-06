@@ -11,9 +11,9 @@ export default function LogoutButton() {
   const showError = (message) => toast.error(message);
 
   const handleLogout = async () => {
-    const res = await fetch("/api/user/logout");
+    const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/user/logout");
     console.log(res)
-    if (res.ok) {
+    if (res.status === 200) {
       showSuccess("Logout Success");
       router.refresh();
       router.replace("/");
