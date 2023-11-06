@@ -5,7 +5,6 @@ export async function POST(req) {
   const formData = await req.json();
 
   const { title, short_des, description, featured_image } = formData;
-  console.log(formData);
 
   try {
     if (!title || !short_des || !description || !featured_image) {

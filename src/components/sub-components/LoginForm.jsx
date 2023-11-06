@@ -18,7 +18,6 @@ export default function LoginForm() {
 
     onSubmit: async (values, { resetForm }) => {
 
-      console.log(values)
       if (!values.email || !values.password) {
         showError("All fields are required");
       } else {

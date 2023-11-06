@@ -13,7 +13,7 @@ export default function NewServiceForm({ uid }) {
   const showError = (message) => toast.error(message);
 
   // loading screen
-  const [loading, setLoading]= useState(false);
+  const [loading, setLoading] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -45,8 +45,8 @@ export default function NewServiceForm({ uid }) {
         }
       } catch (error) {
         showError("Failed");
-      }finally{
-        setLoading(false)
+      } finally {
+        setLoading(false);
       }
     },
   });
@@ -77,12 +77,16 @@ export default function NewServiceForm({ uid }) {
           placeholder="Type here"
         ></textarea>
         {loading ? (
-          <p>please wait</p>
+          <button className="btn">
+            <span className="loading loading-spinner"></span>
+            Please Wait
+          </button>
         ) : (
           <button type="submit" className="btn-brand">
-          Create
-        </button>
+            Create
+          </button>
         )}
+
       </form>
     </>
   );

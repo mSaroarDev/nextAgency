@@ -15,6 +15,9 @@ export default function NewBlogForm() {
   const showSuccess = (m) => toast.success(m);
   const showError = (m) => toast.error(m);
 
+  // loading screen
+  const [loading, setLoading] = useState(false);
+
   const router = useRouter();
 
   const imageUpload = async () => {
@@ -47,34 +50,35 @@ export default function NewBlogForm() {
     },
 
     onSubmit: async (values, { resetForm }) => {
+      setLoading(true);
       const data = await imageUpload();
-      console.log(imgUrl)
       values.featured_image = data;
       // You can access the description from formik.values.description
       try {
-        const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/blogs/create", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(values)
-        })
+        const res = await fetch(
+          process.env.NEXT_PUBLIC_BASE_URL + "/api/blogs/create",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+          }
+        );
 
-        console.log(res)
-
-
-        if(res.status !== 200){
+        if (res.status !== 200) {
           showError("Failed");
-        }else if(res.status === 200){
-          showSuccess("Succefully Created")
+        } else if (res.status === 200) {
+          showSuccess("Succefully Created");
           resetForm();
           setSelectedImage(null);
           formik.setFieldValue("");
           router.refresh();
-          router.push(process.env.NEXT_PUBLIC_BASE_URL + "/dashboard/blogs")
+          router.push(process.env.NEXT_PUBLIC_BASE_URL + "/dashboard/blogs");
         }
       } catch (error) {
-        console.log("error");
+      } finally {
+        setLoading(false);
       }
     },
   });
@@ -121,9 +125,16 @@ export default function NewBlogForm() {
           className="file-input file-input-bordered w-full max-w-xs"
         />
 
-        <button type="submit" className="mt-3 btn-brand max-w-fit ms-auto">
-          Create Post
-        </button>
+        {loading ? (
+          <button className="btn btn-wide mt-5">
+            <span className="loading loading-spinner"></span>
+            Please Wait
+          </button>
+        ) : (
+          <button type="submit" className="btn-brand btn-wide mt-5">
+            Create
+          </button>
+        )}
       </form>
     </>
   );
